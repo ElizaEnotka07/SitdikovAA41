@@ -27,15 +27,37 @@ namespace SitdikovAA41
 
         List<Product> CurrentPageList = new List<Product>();
         List<Product> TableList;
-        public ProductPage()
+
+        private User _user;
+        public ProductPage(User user)
         {
-            InitializeComponent();
-
-            var currentProduct = Sitdi41Entities.GetContext().Product.ToList();
-            ProductListView.ItemsSource = currentProduct;
+            string logi; string rol;
+            InitializeComponent(); _user = user;
+            var currentProducts = Sitdi41Entities.GetContext().Product.ToList(); ProductListView.ItemsSource = currentProducts;
+            if (user != null)
+            {
+                logi = user.UserSurname + user.UserName  + " " + user.UserPatronymic; 
+                Imya.Text = logi;
+                switch (user.UserRole)
+                {
+                    case 1:
+                        rol = "Клиент";
+                        break;
+                    case 2:
+                        rol = "Менеджер"; break;
+                    case 3:
+                        rol = "Администратор";
+                        break;
+                    default:
+                        rol = "Гость"; break;
+                }
+            }
+            else
+            {
+                rol = "Гость";
+            }
+            Role.Text = rol;
             UpdateProduct();
-            ComboType.SelectedIndex = 0;
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

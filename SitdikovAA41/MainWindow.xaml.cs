@@ -30,6 +30,7 @@ namespace SitdikovAA41
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             Manager.MainFrame.GoBack();
+            Manager.MainFrame.Navigate(new AuthPage());
         }
 
         private void MainFrame_ContentRendered(object sender, EventArgs e)

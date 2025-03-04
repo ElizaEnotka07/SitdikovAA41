@@ -17,6 +17,16 @@
             <RowDefinition Height="auto"></RowDefinition>
 
         </Grid.RowDefinitions>
+        
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left">
+            <TextBlock Text="Вы авторизованы как " FontSize="16"></TextBlock>
+            <TextBlock  FontSize="16" Name="Imya"></TextBlock>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left">
+            <TextBlock Text="Роль: " FontSize="16"></TextBlock>
+            <TextBlock  FontSize="16" Name="Role"></TextBlock>
+        </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
             <TextBlock Name="счёт" FontSize="15" ></TextBlock>
